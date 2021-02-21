@@ -1,0 +1,17 @@
+<div style="padding-left: 42%; padding-top: 13%;">
+    <div style="font-size: xx-large;">Welcome to login</div>
+    <div style="padding-left: 5%;">
+        <div style="padding-top: 5%;">
+            <div>Username</div>
+            <input type="'text'" class="tbox__font" [(ngModel)]="inputUserName" matInput name="username" id="txtUsername" #name="ngModel" />
+
+            <div style="padding-top: 3%;">Password</div>
+            <input type="'text'" class="tbox__font" [(ngModel)]="inputPassword" matInput name="password" id="txtPassword" #password="ngModel" />
+        </div>
+        <div style="color: red;" *ngIf="showError">Incorrect credentials</div>
+        <div style="padding-top: 8%; padding-left: 6%;">
+            <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </div>
+        
+    </div>
+</div>
