@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -11,19 +11,24 @@ export class PopupModalComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<PopupModalComponent>) { }
 
+  inputName: string = "";
+  inputDescription: string = "";
   ngOnInit() {
   }
 
   // When the user clicks the action button a.k.a. the logout button in the\
   // modal, show an alert and followed by the closing of the modal
   actionFunction() {
-    alert("You have logged out.");
-    this.closeModal();
+    const result = {
+      name: this.inputName,
+      description: this.inputDescription
+    }
+    this.dialogRef.close(result);
   }
 
   // If the user clicks the cancel button a.k.a. the go back button, then\
   // just close the modal
   closeModal() {
-    this.dialogRef.close();
+    this.dialogRef.close("a");
   }
 }

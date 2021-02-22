@@ -1,12 +1,26 @@
 <div id="modal-content-wrapper">
     <header id="modal-header">
-        <h1 id="modal-title">Add/Edit Blog</h1>
+        <h2 id="modal-title">Add/Edit Blog</h2>
     </header>
     <section id="modal-body">
-        
+        <div>
+            <h3 class="m-0">Blog Name</h3>
+            <div>
+                <input type="'text'" class="tbox__font wid-85" [(ngModel)]="inputName" matInput name="name" id="txtName"
+                    #name="ngModel" autocomplete="off" />
+            </div>
+
+        </div>
+        <div class="p-t-2">
+            <h3 class="m-0">Description</h3>
+            <div>
+                <input type="'text'" class="tbox__font wid-85" [(ngModel)]="inputDescription" matInput name="description"
+                    id="txtDescription" #name="ngModel" autocomplete="off" />
+            </div>
+        </div>
     </section>
-    <footer id="modal-footer">
-        <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Logout</button>
-        <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">Go back</button>
+    <footer class="w-35" id="modal-footer">
+        <button class="m-r-10" mat-raised-button (click)="actionFunction()">Save</button>
+        <button mat-raised-button (click)="closeModal()">Cancel</button>
     </footer>
 </div>
