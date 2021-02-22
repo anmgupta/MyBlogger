@@ -10,18 +10,19 @@ import { PopupModalComponent } from '../shared/components/popup-modal/popup-moda
 export interface BlogModal {
   name: string;
   id: number;
+  description: string;
   createdDate: string;
 }
 
 const ELEMENT_DATA: BlogModal[] = [
-  { id: 1, name: 'My Food Blog', createdDate: '1/2/21' },
-  { id: 2, name: 'My Travel Blog', createdDate: '1/4/21' },
-  { id: 3, name: 'My Girlfriend Blog', createdDate: '1/6/21' },
-  { id: 4, name: 'My Parents Blog', createdDate: '1/8/21' },
-  { id: 5, name: 'My School Blog', createdDate: '1/3/21' },
-  { id: 6, name: 'My College Blog', createdDate: '1/7/21' },
-  { id: 7, name: 'My Friends Blog', createdDate: '1/5/21' },
-  { id: 8, name: 'My Job Blog', createdDate: '1/9/21' }
+  { id: 1, name: 'My Food Blog', createdDate: '1/2/21', description: "Food Blog Description" },
+  { id: 2, name: 'My Travel Blog', createdDate: '1/4/21', description: "Travel Blog Description" },
+  { id: 3, name: 'My Girlfriend Blog', createdDate: '1/6/21', description: "Girlfriend Blog Description" },
+  { id: 4, name: 'My Parents Blog', createdDate: '1/8/21', description: "Parents Blog Description" },
+  { id: 5, name: 'My School Blog', createdDate: '1/3/21', description: "School Blog Description" },
+  { id: 6, name: 'My College Blog', createdDate: '1/7/21', description: "College Blog Description" },
+  { id: 7, name: 'My Friends Blog', createdDate: '1/5/21', description: "Friends Blog Description" },
+  { id: 8, name: 'My Job Blog', createdDate: '1/9/21', description: "Job Blog Description" }
 ];
 
 @Component({
@@ -59,8 +60,9 @@ export class HomeComponent implements OnInit {
     const modalDialog = this.matDialog.open(PopupModalComponent, dialogConfig);
 
     modalDialog.afterClosed().subscribe(result => {
+      debugger;
       if (action == 'Add') {
-        this.addRowData(result.data);
+        this.addRowData(result);
       } else if (action == 'Update') {
         this.updateRowData(result.data);
       }
@@ -82,6 +84,7 @@ export class HomeComponent implements OnInit {
     this.dataSource.push({
       name: row_obj.name,
       id: 10,
+      description: row_obj.description,
       createdDate: '2/22/21'
     });
 
